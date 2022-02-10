@@ -1,0 +1,27 @@
+import inspect
+class f():
+    g = ()
+    def __init__(self, string, *args):
+        # g = []
+        # for i, v in enumerate(args):
+            # g.append(str(v))
+        # self.g = args
+        self.variables = [i for i in args]
+        self.vs = ['{}'.format(i) for i in args]
+        # print(self.g)
+        self.string = str(string)
+        self.expr = eval(self.string)
+    def func(self, *args):
+        dicc = {self.vs[i]:v for i, v in enumerate(args)}
+        print(dicc)
+        args = dicc
+        def wrapper(dicc=dicc):
+            return eval("x**2+y")
+        return wrapper
+        # return eval("x**2+y")
+            
+        
+# del x, y
+f1 = f("x**2+y**2", x, y)
+# f1.fun
+f1.func(5, 6)()
